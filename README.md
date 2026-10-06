@@ -1,63 +1,46 @@
-# Day 3 — React Todo List
+# React Todo List
 
-A responsive Todo List application built with **React, TypeScript, and Vite**.
-
-This project demonstrates React fundamentals including components, props, state, effects, controlled forms, event handling, lifting state up, `useRef`, `useMemo`, and `useCallback`.
+A Todo List application built with **React, TypeScript, and Vite**.
 
 ## Features
 
-- Add new todos
+- Add todos with priority and due date
 - Edit todos in place
 - Delete todos with confirmation
 - Mark todos as completed
-- Filter by:
-  - All
-  - Active
-  - Completed
-- Filter by priority:
-  - All
-  - High
-  - Medium
-  - Low
-- Sort by:
-  - Created date
-  - Priority
-  - Due date
-- Live todo search
-- Due dates
-- Total todo count
-- Completed todo count
-- Empty state
-- Persistent data using `localStorage`
-- Responsive layout
-- TypeScript strict mode
-- ESLint/Oxlint validation
+- Filter by All, Active, and Completed
+- Filter by priority
+- Sort by created date, priority, or due date
+- Live search
+- Persist todos using localStorage
+- Display total and completed counts
+- Empty state when no todos match the filters
+- Responsive user interface
 
-## Tech Stack
+## React Concepts Used
 
-- React
-- TypeScript
-- Vite
-- CSS
-- pnpm
-- localStorage
+This project demonstrates:
 
-## React Concepts Demonstrated
+- React components
+- Props
+- `useState`
+- `useEffect`
+- Effect cleanup
+- Controlled forms
+- Event handling
+- Lifting state up
+- `useRef`
+- `useMemo`
+- `useCallback`
 
-### Components
-
-The application is divided into reusable components instead of keeping everything inside `App.tsx`.
-
-Example component structure:
+## Project Structure
 
 ```text
 src/
 ├── components/
-│   ├── TodoForm.tsx
 │   ├── TodoFilters.tsx
-│   ├── TodoItem.tsx
-│   ├── TodoList.tsx
-│   └── TodoStats.tsx
+│   ├── TodoForm.tsx
+│   └── TodoItem.tsx
 ├── hooks/
 │   └── useLocalStorage.ts
 ├── types/
@@ -70,94 +53,15 @@ src/
 └── main.tsx
 ```
 
-### State
-
-React state is used for:
-
-- Todo data
-- Search text
-- Status filter
-- Priority filter
-- Sort option
-- Form state
-- Editing state
-
-### `useEffect`
-
-`useEffect` is used inside the localStorage hook to synchronize todo state with browser storage.
-
-The effect has controlled dependencies to avoid unnecessary or infinite updates.
-
-### `useRef`
-
-`useRef` is used during inline editing to automatically focus the edit input.
-
-### `useMemo`
-
-`useMemo` is used to calculate the filtered, searched, and sorted todo list without recalculating the derived list unnecessarily.
-
-### `useCallback`
-
-`useCallback` is used for todo event handlers passed to child components.
-
-## Local Storage
-
-Todos are stored in the browser's local storage.
-
-The application restores saved todos when the page is refreshed, so todo data is not lost during a normal browser refresh.
-
-## Running the Project
-
-Install dependencies:
-
-```bash
-pnpm install
-```
-
-Start the development server:
-
-```bash
-pnpm dev
-```
-
-The application will be available at the local Vite URL shown in the terminal.
-
 ## Validation
 
-TypeScript:
+The project was checked with:
 
 ```bash
 pnpm exec tsc --noEmit
-```
-
-Lint:
-
-```bash
 pnpm lint
 ```
 
-The project should pass both checks with zero errors and warnings.
+TypeScript compilation passes and Oxlint reports zero warnings and zero errors.
 
-## Build
-
-To create a production build:
-
-```bash
-pnpm build
-```
-
-To preview the production build locally:
-
-```bash
-pnpm preview
-```
-
-## Deployment
-
-The application is designed to be deployed using Vercel.
-
-Production deployment:
-
-```text
-Vercel
-``
+The application stores Todo data in browser `localStorage`, so todos remain available after refreshing the page.
